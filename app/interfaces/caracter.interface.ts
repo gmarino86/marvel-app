@@ -1,4 +1,4 @@
-export interface CharacterLimit50 {
+export interface CharacterQuery {
   code:            number;
   status:          string;
   copyright:       string;
