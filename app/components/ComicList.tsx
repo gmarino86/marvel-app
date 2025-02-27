@@ -25,7 +25,7 @@ const ComicsCarousel = ({ characterId }: Props) => {
 
     return (
         data == undefined ? (
-            <div className="left-0 absolute bg-red-500 w-full h-[5.38px] animate-loading"></div>
+            <div data-testid="loading" className="left-0 absolute bg-red-500 w-full h-[5.38px] animate-loading"></div>
         ) : (
             <div className="mx-auto px-4 max-w-[960px] max-h-[526.8px]">
                 <div

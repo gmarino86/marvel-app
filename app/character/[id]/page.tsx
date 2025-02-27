@@ -63,7 +63,6 @@ const CharacterScreen = () => {
                   )}
                 </div>
 
-                {/* Nombre y descripción */}
                 <div className="col-span-2 p-4 md:p-12">
                   <div className="flex justify-between items-start w-full">
                     <h2 className="font-bold text-4xl uppercase">{character?.name}</h2>
@@ -94,7 +93,6 @@ const CharacterScreen = () => {
             </div>
           </div>
 
-          {/* Sección de cómics */}
           {character && (
             <div className="pt-6 w-full">
               <div className="m-auto p-4 max-w-[960px]">

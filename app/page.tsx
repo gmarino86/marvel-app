@@ -17,7 +17,6 @@ export default function Home() {
   const [characters, setCharacters] = useState<Character[]>([]);
   const [searched, setSearched] = useState<Character[] | null>(null);
   
-  // Obtener favoritos y estado de favoritos desde Redux
   const favorites = useSelector((state: { favorite: { value: Character[], showFavorites: boolean } }) => state.favorite.value);
   const showFavorites = useSelector((state: { favorite: { value: Character[], showFavorites: boolean } }) => state.favorite.showFavorites);
 
@@ -42,7 +41,6 @@ export default function Home() {
     }
   };
 
-  // Determinar qué lista de personajes mostrar
   const displayedCharacters = showFavorites ? favorites : (searched ?? characters);
 
   return (
