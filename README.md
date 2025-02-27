@@ -12,11 +12,9 @@
 
 
 >[!NOTE]
->TanStack: en /actions para hacer las querys y mantener por 24 la info. 
->Se mantiene la query por 24 hs.
->
+>TanStack: en /actions para hacer las querys y mantener por 24hs la info. 
 
 
 >[!NOTE]
 >Uso Redux para para guardar los favoritos
->
+
