@@ -4,6 +4,29 @@
 
 
 .logoImg {
-    width: auto;
-    height: auto;
+    width: 130px;
+    height: 52px;
 }
+
+.containerCharacter {
+    overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+    height: 8px; /* Grosor del scroll horizontal */
+    width: 8px;  /* Grosor del scroll vertical */
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Color de fondo del track */
+    border-radius: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #e63946; /* Color del scroll */
+    border-radius: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #d62839; /* Color del scroll cuando pasas el mouse */
+  }

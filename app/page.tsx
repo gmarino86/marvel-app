@@ -1,25 +1,39 @@
 "use client"
 import { useState, useEffect } from 'react';
 import { Character } from './interfaces/caracter.interface';
-import { fetchCharacters } from './actions/characterActions';
+import { fetchCharacterByName, fetchCharacters } from './actions/characterActions';
 import CharacterCard from './components/CharacterCard';
 import SearchBar from './components/SearchBar';
 import { useQuery } from '@tanstack/react-query';
 
 export default function Home() {
 
-  const { isLoading, isFetching, data, refetch, error } = useQuery({
+  const { isLoading, data } = useQuery({
     queryKey: ['characters'],
     queryFn: fetchCharacters,
     staleTime: 1000 * 60 * 60 * 24,
   });
 
-  const [characters, setCharacters] = useState<Character[]>([]);
-  
-  useEffect(() => {
-      setCharacters(data?.data.results || []);
-  }, [data]);
 
+  const filterName = (value: string) => {
+    const { data } = useQuery({
+      queryKey: ['characters', 'name', value],
+      queryFn: () => fetchCharacterByName(value),
+      staleTime: 1000 * 60 * 60 * 24,
+    });
+    setSearched(data?.data.results || []);
+    console.log("searched", searched);
+  }
+
+  const [characters, setCharacters] = useState<Character[]>([]);
+  const [searched, setSearched] = useState<Character[]>([]);
+
+  useEffect(() => {
+    if (data) {
+      setCharacters(data.data.results);
+    }
+  }, [data]);
+  
   return (
     <div className="min-h-screen">
       {
@@ -30,7 +44,14 @@ export default function Home() {
 
       <main className="p-4">
         <div className="mb-4">
-          <SearchBar />
+          
+          <SearchBar 
+            onSubmit={(value) => {
+              filterName(value);
+            }
+          }
+
+          />
         </div>
         
         <div>

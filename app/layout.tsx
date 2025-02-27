@@ -1,6 +1,4 @@
 "use client";
-import { metadata } from './metadata';
-
 import { Roboto_Condensed } from "next/font/google";
 import "./globals.css";
 import Header from './components/Header';
