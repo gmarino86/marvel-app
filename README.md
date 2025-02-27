@@ -19,3 +19,6 @@ Se mantiene la query por 24 hs.
 
 
 
+>[!TIP]
+>Uso Redux para para guardar los favoritos
+>
