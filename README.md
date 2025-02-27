@@ -3,8 +3,7 @@
 
 >[!TIP]
 >Para ejecutar la aplicación en producción
->"npm run build"
->"npm run start"
+>"npm run build" y luego "npm run start"
 
 
 >[!TIP]
