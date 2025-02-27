@@ -1,7 +1,9 @@
 >[!TIP]
->Para ejecutar la aplicación. 
->npm run dev  --> Desarrollo
->npm run build  --> Producción
+>Para ejecutar la aplicación en desarrollo. 
+>npm run dev
+>>[!TIP]
+>>Para ejecutar la aplicación en producción
+>npm run build
 
 
 >[!IMPORTANT]
