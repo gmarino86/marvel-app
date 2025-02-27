@@ -11,7 +11,7 @@ export default function SearchBar({ onSubmit }: Props) {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     if (onSubmit && inputRef.current) {
-      onSubmit(inputRef.current.value); // Enviar el valor del input al padre
+      onSubmit(inputRef.current.value);
     }
   };
 
