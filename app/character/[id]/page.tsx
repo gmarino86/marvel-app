@@ -52,13 +52,17 @@ const CharacterScreen = () => {
           <div className="bg-black">
             <div className="xl:m-auto xl:max-w-[960px] h-[607.89px] md:h-[278px] xl:h-[320px] text-white">
               <div className="grid grid-cols-1 md:grid-cols-3">
-                
-                <div className="col-span-1 h-[397.89px] md:h-[278px] xl:h-[320px]">
+
+                {/* ✅ Reemplazo de <img> por <Image> con "fill" */}
+                <div className="relative col-span-1 h-[397.89px] md:h-[278px] xl:h-[320px]">
                   {character?.thumbnail && (
-                    <img
+                    <Image
                       src={`${character.thumbnail.path}/portrait_uncanny.${character.thumbnail.extension}`}
                       alt={character.name}
-                      className="w-full h-full object-cover"
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 300px"
+                      className="rounded-md object-cover"
+                      priority
                     />
                   )}
                 </div>
@@ -67,18 +71,20 @@ const CharacterScreen = () => {
                   <div className="flex justify-between items-start w-full">
                     <h2 className="font-bold text-4xl uppercase">{character?.name}</h2>
                     <button onClick={toggleFavorite} className="ml-4">
-                      <Image
-                        src={
-                          !isFavorite
-                            ? "/icon/heart-icon-fill.png"
-                            : "/icon/heart-icon.png"
-                        }
-                        alt="Favorite"
-                        width={24}
-                        height={21.68}
-                        className="hover:scale-110 transition-transform"
-                      />
+                      <div className="relative w-[24px] h-[24px]">
+                        <Image
+                          src={isFavorite ? "/icon/heart-icon.png" : "/icon/heart-icon-fill.png"}
+                          alt="Favorite"
+                          fill
+                          sizes="24px" // ✅ Solución para el warning
+                          className="object-contain hover:scale-110 transition-transform"
+                          priority
+                        />
+                      </div>
                     </button>
+
+
+
                   </div>
                   <p className="py-6 text-base">
                     {character?.description.length === 0

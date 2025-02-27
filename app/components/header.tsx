@@ -17,12 +17,12 @@ const Header = () => {
         <Image src='/images/logo.png' alt='Logo Marvel' width={130} height={52} className='logoImg' priority />
       </Link>
       <div className='flex items-center cursor-pointer' onClick={() => dispatch(toggleShowFavorites())}>
-        <Image 
+        <Image
           className='pr-2' 
           src={showFavorites ? '/icon/heart-icon-fill.png' : '/icon/heart-icon.png'} 
           alt='Favorite' 
-          width={24} 
-          height={21.68} 
+          width={24}
+          height={24}
           priority
         />
         <p>{favorite.length}</p>

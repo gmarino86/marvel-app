@@ -62,12 +62,12 @@ export default function Home() {
           <div className="gap-4 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7">
             {displayedCharacters.map((character) => (
               <CharacterCard
-                key={character.id}
-                id={character.id}
-                name={character.name}
-                image={character.thumbnail.path + "/portrait_fantastic" + "." + character.thumbnail.extension}
-                item={character}
-              />
+              key={character.id}
+              id={character.id}
+              name={character.name}
+              image={`${character.thumbnail.path}/portrait_fantastic.${character.thumbnail.extension}`} 
+              item={character}
+            />
             ))}
           </div>
         </div>
