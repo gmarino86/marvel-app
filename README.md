@@ -8,8 +8,7 @@
 
 
 >[!IMPORTANT]
->TanStack: en /actions para hacer las querys y mantener por 24 la info. 
->Se mantiene la query por 24 hs. 
+>Renombrar el archivo _template.env por .env e ingresar las credenciales personales de Marvel. 
 
 
 >[!NOTE]
