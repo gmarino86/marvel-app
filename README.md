@@ -13,9 +13,10 @@ bun dev
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 
-TanStack: 
-Implementado en el archivo app\page.tsx
-Se mantiene la query por 24 hs. 
+>[!TIP]
+>TanStack: 
+>Implementado en el archivo app\page.tsx
+>Se mantiene la query por 24 hs. 
 
 
 
