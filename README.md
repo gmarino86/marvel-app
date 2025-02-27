@@ -1,14 +1,15 @@
->[!TIP]
->Para ejecutar la aplicación en desarrollo. 
->"npm run dev"
+>[!IMPORTANT]
+>Renombrar el archivo _template.env por .env e ingresar las credenciales personales de Marvel. 
 
 >[!TIP]
 >Para ejecutar la aplicación en producción
 >"npm run build"
+>"npm run start"
 
 
->[!IMPORTANT]
->Renombrar el archivo _template.env por .env e ingresar las credenciales personales de Marvel. 
+>[!TIP]
+>Para ejecutar la aplicación en desarrollo. 
+>"npm run dev"
 
 
 >[!NOTE]
