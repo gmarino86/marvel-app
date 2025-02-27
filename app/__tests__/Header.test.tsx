@@ -2,12 +2,21 @@ import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
-import Header from '../components/Header';
+import Header from '../components/header';
+import { MockStoreEnhanced } from "redux-mock-store"; 
 
-const mockStore = configureStore([]);
+
+interface RootState {
+    favorite: {
+        value: { id: number; name: string }[];
+        showFavorites: boolean;
+    };
+}
+
+const mockStore = configureStore<RootState>([]);
 
 describe('Header Component', () => {
-    let store: any;
+    let store: MockStoreEnhanced; 
 
     beforeEach(() => {
         store = mockStore({

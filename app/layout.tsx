@@ -1,7 +1,6 @@
 "use client";
 import { Roboto_Condensed } from "next/font/google";
 import "./globals.css";
-import Header from './components/Header';
 import {
   QueryClient,
   QueryClientProvider,
@@ -9,6 +8,7 @@ import {
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { Provider } from 'react-redux'
 import store from './store'
+import Header from "@/app/components/header";
 
 const robotoCondensed = Roboto_Condensed({
   subsets: ["latin"],

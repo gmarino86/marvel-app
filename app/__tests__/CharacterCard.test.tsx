@@ -6,15 +6,36 @@ import CharacterCard from "../components/CharacterCard";
 import { add, remove } from "@/app/redux/favoriteSlice";
 import { Character } from "../interfaces/caracter.interface";
 import { URLType, Extension } from "../interfaces/caracter.interface";
+import { MockStoreEnhanced } from "redux-mock-store"; 
 
-const mockStore = configureStore([]);
+interface RootState {
+    favorite: {
+        value: Character[];
+    };
+}
+
+const mockStore = configureStore<RootState>([]);
 
 describe("CharacterCard Component", () => {
-    let store: any;
+    let store: MockStoreEnhanced; 
 
     beforeEach(() => {
         store = mockStore({
-            favorite: { value: [{ id: 1, name: "Spider-Man" }] },
+            favorite: { value: [{
+                id: 1, name: "Spider-Man",
+                description: "",
+                modified: "",
+                thumbnail: {
+                    path: "https://example.com/spiderman",
+                    extension: Extension.Jpg,
+                },
+                resourceURI: "",
+                comics: { available: 0, collectionURI: "", items: [], returned: 0 },
+                series: { available: 0, collectionURI: "", items: [], returned: 0 },
+                stories: { available: 0, collectionURI: "", items: [], returned: 0 },
+                events: { available: 0, collectionURI: "", items: [], returned: 0 },
+                urls: []
+            }] },
         });
         store.dispatch = jest.fn();
     });
