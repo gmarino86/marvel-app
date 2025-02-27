@@ -1,5 +1,6 @@
 "use client"
 import { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { Character } from './interfaces/caracter.interface';
 import { fetchCharacterByName, fetchCharacters } from './actions/characterActions';
 import CharacterCard from './components/CharacterCard';
@@ -15,6 +16,10 @@ export default function Home() {
 
   const [characters, setCharacters] = useState<Character[]>([]);
   const [searched, setSearched] = useState<Character[] | null>(null);
+  
+  // Obtener favoritos y estado de favoritos desde Redux
+  const favorites = useSelector((state: { favorite: { value: Character[], showFavorites: boolean } }) => state.favorite.value);
+  const showFavorites = useSelector((state: { favorite: { value: Character[], showFavorites: boolean } }) => state.favorite.showFavorites);
 
   useEffect(() => {
     if (data) {
@@ -24,7 +29,7 @@ export default function Home() {
 
   const filterName = async (value: string) => {
     if (value.trim() === "") {
-      setSearched(null); // Mostrar todos los personajes si el input está vacío
+      setSearched(null);
       return;
     }
     
@@ -36,6 +41,9 @@ export default function Home() {
       setSearched([]);
     }
   };
+
+  // Determinar qué lista de personajes mostrar
+  const displayedCharacters = showFavorites ? favorites : (searched ?? characters);
 
   return (
     <div className="min-h-screen">
@@ -49,9 +57,12 @@ export default function Home() {
         </div>
 
         <div>
-          <p className="mb-4">{(searched ?? characters).length} {(searched ?? characters).length === 1 ? "RESULT" : "RESULTS"}</p>
+          <p className="mb-4">
+            {displayedCharacters.length} {displayedCharacters.length === 1 ? "RESULT" : "RESULTS"}
+          </p>
+
           <div className="gap-4 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7">
-            {(searched ?? characters).map((character) => (
+            {displayedCharacters.map((character) => (
               <CharacterCard
                 key={character.id}
                 id={character.id}
