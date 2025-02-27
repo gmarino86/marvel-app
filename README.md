@@ -11,6 +11,10 @@
 >"npm run dev"
 
 
+>[!TIP]
+>Para ejecutar los test unitarios 
+>"npm run test"
+
 >[!NOTE]
 >TanStack: en /actions para hacer las querys y mantener por 24hs la info. 
 
